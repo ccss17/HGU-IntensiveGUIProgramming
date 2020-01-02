@@ -117,8 +117,4 @@ int main(void){
     return 0;
 }
 
-HEADERS += \
-    headers.h
 
-SOURCES += \
-    main.cpp
