@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowListener;
 public class TTT2 extends JFrame implements ActionListener{
-	private int f=0;
+	private int f=0, a,k, ro=-1,co=-1;
 	boolean gameend = false; 
 	JButton[][] b = new JButton[3][3];
 	JButton c = new JButton("Computer");
@@ -47,71 +47,131 @@ public class TTT2 extends JFrame implements ActionListener{
 	  			else b[i][j].setText("X");
 	  			f++;
 	  			
-	  			check(i,j);
+	  			gameend = check(i,j);
 	  			
 	  			
 	  		}
 	        }
 	      }
 		if(e.getSource()==c) {
-			int a,k;
-			
-			while(true) {
-				a = (int)(Math.random()*3);
-				k = (int)(Math.random()*3);
-				if(b[a][k].getText()=="") break;
+			boolean defense= false, attack=false;
+			ro=-1; co=-1;
+			for(int cc=0; cc<3; cc++) {
+				for(int dd=0; dd<3; dd++ ) {
+					if(b[cc][dd].getText()=="") {                
+						if(defense!=true&& attack!=true) {a=cc; k=dd;}
+						if(f%2==0&&b[cc][dd].getText()=="") {
+							b[cc][dd].setText("O");
+							attack = check(cc,dd);
+							System.out.println("cc: "+ cc+ "dd : "+dd);
+							b[cc][dd].setText("");
+							if(attack == true) {
+								
+								b[cc][dd].setText("O");
+								f++;
+								gameend=check(cc,dd);
+								break;
+							}
+							b[cc][dd].setText("X");					
+							defense=check(cc,dd);
+							b[cc][dd].setText("");
+							if(defense==true) {
+								defense=false;
+				  				ro=cc; co =dd;
+				  			}
+							
+						}
+						else {
+							b[cc][dd].setText("X");
+							attack = check(cc,dd);
+							System.out.println(attack);
+							b[cc][dd].setText("");
+							if(attack == true) {
+								System.out.println("cc: "+ cc+ "dd : "+dd);
+								b[cc][dd].setText("X");
+								f++;
+								gameend=check(cc,dd);
+								break;
+							}
+							b[cc][dd].setText("O");
+							defense=check(cc,dd);
+							b[cc][dd].setText("");
+							if(defense==true) {
+								defense=false;
+								ro=cc; co =dd;
+				  			}
+						
+							
+						}				
+			  			
+					}
+				}
+				if(attack ==true) 
+	  				break;
+				
 			}
-			if(f%2==0) b[a][k].setText("O");
-  			else b[a][k].setText("X");
-  			f++;
-  			
-  			check(a,k);
+			
+			if(defense!=true && attack!=true && b[1][1].getText()=="")
+				{a=1; k =1;}
+			if(ro==-1 && attack ==false) {
+				if(f%2==0) b[a][k].setText("O");
+	  			else b[a][k].setText("X");
+	  			f++;
+	  			gameend=check(a,k);
+			}
+			if(ro!= -1 && attack ==false) {
+				if(f%2==0) b[ro][co].setText("O");
+	  			else b[ro][co].setText("X");
+	  			f++;
+	  			gameend=check(ro,co);
+			}
+			
 			  
 		}
-		if(gameend==true || f==9) {
+		if(gameend==true || f==9)  {
 				ConfirmWindow k = new ConfirmWindow();
 				k.setVisible(true);
 			}
 		
 	}
-	private void check(int row, int col)
+	
+	private boolean check(int row, int col)
     {
       if(b[row][0].getText()==b[row][1].getText()&& b[row][1].getText()==b[row][2].getText())
         {
-          gameend = true;         
+          return true;         
         }
     else  if(b[0][col].getText()==b[1][col].getText()&& b[1][col].getText()==b[2][col].getText())
        {
-          gameend = true;
+          return true;
        } 
       if((row==0 &&col==0) || (row==1 && col ==1) || (row==2 &&col==2)) {
     	  if((b[0][0].getText()==b[1][1].getText() && b[1][1].getText()==b[2][2].getText())  ) {
-  			ConfirmWindow y = new ConfirmWindow();
-  			y.setVisible(true);
+    		  return true;
   		}
       }
       if((row==2 &&col==0) || (row==1 && col==1) || (row ==0 &&col==2)) {
     	  if(b[2][0].getText()==b[1][1].getText() && b[1][1].getText()==b[0][2].getText()){
-    		  ConfirmWindow y = new ConfirmWindow();
-    			y.setVisible(true);
+    		  return true;
     	  }
       }
-      
+      return false;
     }
 	private class ConfirmWindow extends JFrame implements ActionListener{
-		Container p =getContentPane();
-		JButton yes;
-		JButton no; 
-		ConfirmWindow(){
-			p.setLayout(new FlowLayout());
-			setTitle("¿É¼Ç ¼±ÅÃ");
-			setSize(250,100);
-			JLabel j = new JLabel("      Game End. Do you want to exit?     ");
-			p.add(j);
-			yes = new JButton("¿¹");
-			yes.addActionListener(this);
-			p.add(yes);
-			no = new JButton("¾Æ´Ï¿À");
+		
+		Container p =getContentPane(); 
+		JButton yes; 
+		JButton no;  
+		ConfirmWindow(){ 
+			p.setLayout(new FlowLayout()); 
+			setTitle("ì˜µì…˜ ì„ íƒ"); 
+			setSize(250,100); 
+			JLabel j = new JLabel("      Game End. Do you want to exit?     "); 
+			p.add(j);  
+			yes = new JButton("ì˜ˆ");  
+			yes.addActionListener(this); 
+			p.add(yes); 
+			no = new JButton("ì•„ë‹ˆì˜¤"); 
 			no.addActionListener(this);
 			p.add(no);
 		}
