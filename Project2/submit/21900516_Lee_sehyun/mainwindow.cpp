@@ -1,14 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-int player;
-QString players[2];
-int match = 1;
+int player; //현재 플레이어
+QString players[2]; // 플레에어들
+int match = 1; // 매치
 QString a;
-char tic[3][3];
-int A = 0, B = 0, C = 0;
+char tic[3][3]; // 판
+int A = 0, B = 0, C = 0; //승, 패, 무
 int k;
-int mode = 0;
+int mode = 0; // 싱글, 멀티, 토너먼트등 게임 기능
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -25,6 +25,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// 이겼는지 확인하는 함수
 int checkwin()
 {
     int check = 0;
@@ -78,6 +79,7 @@ int checkwin()
     return 2;
 }
 
+// 플레이어 바꾸기
 int chplay(char check)
 {
     if (check == 'O'){
@@ -88,6 +90,7 @@ int chplay(char check)
     }
 }
 
+// 컴퓨터 룰
 int rule(){
     srand(time(0));
     int i, j;
@@ -193,7 +196,7 @@ int rule(){
     }
 }
 
-
+// 이겼을 때
 void MainWindow::win(){
     if (player == 1) A++;
     else B++;
@@ -210,6 +213,7 @@ void MainWindow::win(){
     ui->pushButton_2->setVisible(1);
 }
 
+// 비겼을 때
 void MainWindow::draw(){
     C++;
     ui->label_4->setText("Draw!");
@@ -225,6 +229,7 @@ void MainWindow::draw(){
     ui->pushButton_2->setVisible(1);
 }
 
+// 재시작, 시작
 void MainWindow::restart(){
     ui->toolButton->setEnabled(true);
     ui->toolButton_2->setEnabled(true);
@@ -267,6 +272,7 @@ void MainWindow::vs(){
     ui->label_7->setText(players[1] + "  " + a.setNum(B) + "승 " + a.setNum(C) + "무 " + a.setNum(A) + "패");
 }
 
+// 컴퓨터 작동
 void MainWindow::Computer(){
     int sum;
     sum = rule();
@@ -569,7 +575,7 @@ void MainWindow::on_toolButton_9_clicked()
     }
 }
 
-
+// 멀티 시작 버튼
 void MainWindow::on_pushButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
@@ -579,12 +585,14 @@ void MainWindow::on_pushButton_clicked()
     restart();
 }
 
+// 다음판 버튼
 void MainWindow::on_pushButton_2_clicked()
 {
     match++;
     restart();
 }
 
+// 처음으로 버튼
 void MainWindow::on_pushButton_3_clicked()
 {
     match = 1;
@@ -597,6 +605,7 @@ void MainWindow::on_pushButton_3_clicked()
     restart();
 }
 
+// 싱글 시작버튼
 void MainWindow::on_pushButton_4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
@@ -606,12 +615,14 @@ void MainWindow::on_pushButton_4_clicked()
     restart();
 }
 
+// 싱글 버튼
 void MainWindow::on_pushButton_5_clicked()
 {
     mode = 0;
     ui->stackedWidget->setCurrentIndex(1);
 }
 
+// 멀티 버튼
 void MainWindow::on_pushButton_7_clicked()
 {
     mode = 1;
