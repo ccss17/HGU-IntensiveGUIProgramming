@@ -34,9 +34,6 @@ class AddressBook
 {
     vector<Person *> addressBook;
     int person_number = 0;
-    string name;
-    string phone;
-    int age;
     int num;
 
 public:
@@ -49,24 +46,24 @@ public:
             addressBook[i]->print();
         }
     }
-    void add()
+    bool add()
     {
-        while (true){
-            cout << "Enter name, phone, age > ";
-            cin >> name >> phone >> age;
-            if (cin.fail()){
-                std::cout << "나이는 숫자로 입력해주세요" << std::endl;
-                std::cin.clear(); 
-                std::cin.ignore(100, '\n'); 
-            }
-            else {
-                break;
-            }
+        string name;
+        string phone;
+        int age;
+        cout << "Enter name, phone, age > ";
+        cin >> name >> phone >> age;
+        if (cin.fail()){
+            std::cout << "나이는 숫자로 입력해주세요" << std::endl;
+            std::cin.clear(); 
+            std::cin.ignore(100, '\n'); 
+            return false;
         }
         addressBook.push_back(new Person(name, phone, age));
         addressBook[person_number]->setPerson(name, phone, age);
 
         person_number++;
+        return true;
     }
     void modify()
     {
@@ -176,7 +173,13 @@ int main(void){
 
         if (num == 1){
             // cout << "add!" << std::endl;
-            book.add();
+            while (true) {
+                if (book.add()) {
+                    // 잘 된 케이스 
+                } else {
+                    // 잘못 입력 
+                }
+            }
         }
         else if (num == 2){
             // cout << "modify!" << std::endl;

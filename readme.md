@@ -22,6 +22,53 @@
 
 - 각 프로젝트의 마지막 날 그 동안 만든 것을 시연합니다. 
 
+## Deploy
+
+자신이 만든 프로젝트를 다른 친구들에게 배포하여 사용도록 할 수 있습니다. 
+
+### QT (MAC)
+
+1. `.pro` 파일의 `CONFIG` 에 `app_bundle` 을 추가합니다. 다음과 같이 추가할 수 있습니다. 
+
+  ```shell
+  CONFIG += app_bundle 
+  ```
+
+2. 프로젝트 디렉토리에서 터미널을 열여서 다음의 명령어로 컴파일 합니다. 
+
+  ```shell
+  make clean
+  qmake -config release 
+  make 
+  ```
+
+3. `macdeployqt` 명령어로 `.dmg` 파일을 생성합니다. 
+
+  ```shell
+  macdeployqt <ProjectName>.app -dmg 
+  ```
+
+4. 생성된 `.dmg` 파일을 배포하여 친구들에게 사용하게 할 수 있습니다. 
+
+### Java (executable JAR file)
+
+1. 먼저 모든 소스코드를 컴파일 합니다. 
+
+  `javac *.java`
+
+2. `main` 메소드가 포함된 클래스의 이름을 `Omok.java` 라고 하면 `Omok.mf` 파일을 만들고 다음의 내용으로 저장합니다. 
+
+  ```shell
+  Manifest-Version: 1.0
+  Main-Class: Omok
+  ```
+
+3. 그리고 다음 명령어로 `jar` 파일을 생성합니다. 
+
+  `jar cmf Omok.mf Omok.jar *.class *.java`
+
+4. `jar` 파일은 윈도우에서 더블클릭으로 실행할 수 있고 커맨드 라인에서는 `java -jar Omok.jar` 로 실행할 수 있습니다. 
+
 ## Helpful link
 
 - Java
