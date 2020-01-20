@@ -28,6 +28,10 @@
 
 ### QT (MAC)
 
+> 이 내용은 https://doc.qt.io/qt-5/macos-deployment.html 에 있는 배포 방식을 요약한 것 입니다. 
+
+> 윈도우용 배포 방식은 https://doc.qt.io/qt-5/windows-deployment.html 에 있습니다. 
+
 1. `.pro` 파일의 `CONFIG` 에 `app_bundle` 을 추가합니다. 다음과 같이 추가할 수 있습니다. 
 
     ```shell
