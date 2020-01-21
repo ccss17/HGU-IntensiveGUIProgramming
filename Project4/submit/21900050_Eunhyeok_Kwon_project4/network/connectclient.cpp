@@ -45,10 +45,17 @@ void ConnectClient::closeConnection()
 void ConnectClient::onReadyRead()
 {
     qInfo() << "onReadyRead slot called(client)";
-    qInfo() << socket->readLine();
-    int x = std::atoi(socket->readLine());
-    int y = std::atoi(socket->readLine());
-    emit opponentMadeMove(QPoint(x,y));
+    QString receivedDataType = socket->readLine();                      // read data type
+    if("stone_move\n" == receivedDataType)
+    {
+        int x = std::atoi(socket->readLine());
+        int y = std::atoi(socket->readLine());
+        emit opponentMadeMove(QPoint(x,y));
+    }
+    else
+    {
+        qInfo() << socket->readAll();
+    }
 }
 
 QTcpSocket *ConnectClient::getSocket() const

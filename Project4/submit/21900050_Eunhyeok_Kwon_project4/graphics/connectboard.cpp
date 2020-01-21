@@ -18,7 +18,7 @@ ConnectBoard::ConnectBoard()
     ss = round((frame_size - bm*2) / (size+0.5));                   // size of each square      30
     bp = (frame_size - bm*2 - ss*(size - 1))/2;                     // board padding            20
     shadowRad = ss*0.25;
-    stoneRad = ss*0.46;
+    stoneRad = ss*0.465;
 
     stoneQPointArray = new QPoint* [size];
     for(int i=0; i<size; i++)
@@ -35,7 +35,6 @@ ConnectBoard::ConnectBoard()
     }
 
     drawBoardLayer();                                               // most basic initialization of board
-
 }
 
 ConnectBoard::~ConnectBoard()
@@ -123,6 +122,7 @@ void ConnectBoard::clearShadowLayer()
     shadowLayer->fill(QColor(0,0,0,0));
 }
 
+/* this is where the size and look of a stone is determined */
 void ConnectBoard::drawStone(QPoint center, bool firstPlayerTurn)
 {
     QPainter painter(stoneLayer);
@@ -131,14 +131,35 @@ void ConnectBoard::drawStone(QPoint center, bool firstPlayerTurn)
     {
         // draw black stone
         painter.setPen(Qt::black);
+        // plain color
         painter.setBrush(QColor(10, 10, 10, 255));
+        // with gradient
+        QPoint centerPoint = center;
+        centerPoint.setY(center.y()+stoneRad);
+        QPoint focalPoint = center;
+        focalPoint.setY(center.y()-stoneRad);
+
+        QRadialGradient grad(centerPoint, stoneRad, focalPoint, stoneRad);
+        grad.setColorAt(1, Qt::black);
+        grad.setColorAt(0.03, Qt::gray);
+        painter.setBrush(grad);
     }
     else{
         // draw white stone
         painter.setPen(Qt::gray);
+        // plain color
         painter.setBrush(QColor(255, 255, 255, 255));
+        // with gradient
+        QPoint centerPoint = center;
+        centerPoint.setY(center.y()-stoneRad/2);
+        QPoint focalPoint = center;
+        focalPoint.setY(center.y()+stoneRad);
+
+        QRadialGradient grad(centerPoint, stoneRad, focalPoint, stoneRad);
+        painter.setBrush(grad);
     }
     painter.drawEllipse(center, stoneRad, stoneRad);
+
 }
 
 
