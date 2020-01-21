@@ -4,13 +4,13 @@
 
 ## Contents
 
-- Week 1 : [Project 1](Project1/Project1.md) (`12/23 ~ 12/30`)
+- Week 1 : [Project 1](Project1/readme.md) (`12/23 ~ 12/30`)
 
-- Week 2 : [Project 2](Project2/Project2.md) (``12/31일 ~ `20/1/8``)
+- Week 2 : [Project 2](Project2/readme.md) (``12/31일 ~ `20/1/8``)
 
-- Week 3 : [Project 3](Project3/Project3.md) (`1/9 ~ 1/15`)
+- Week 3 : [Project 3](Project3/readme.md) (`1/9 ~ 1/15`)
 
-- Week 4 : [Project 4](Project4/Project4.md) (`1/16 ~ 1/22`)
+- Week 4 : [Project 4](Project4/readme.md) (`1/16 ~ 1/22`)
 
 ## Rule
 
