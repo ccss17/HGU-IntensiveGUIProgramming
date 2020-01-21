@@ -235,3 +235,7 @@
   - GUI example 4 : 배틀그라운드 
 
     ![PUBG](https://img2.quasarzone.co.kr/img/data/file/qf_pcgame/3718532858_lvtYO5VF_7836c9c32ecca545949f72bb8f47edf523f22e7a.jpeg)
+
+### TA Manual
+
+- 본 캠프를 진행하는 TA 는 [메뉴얼](manual.pdf) 를 참고하시고 이 레포지토리를 **Fork** 하여 적절히 수정하여 사용해도 됩니다. 
