@@ -32,7 +32,7 @@
 
 - **[java]** 틱택톡 완성 예시 1
 
-  ![ttt1](ttt1.gif)
+  ![ttt1](https://user-images.githubusercontent.com/16812446/72773255-df9b5680-3c49-11ea-919b-47835892ab12.gif)
 
   - 틱택톡을 만들기 위해 사용된 주된 컴포넌트 : `Jbutton`
 
@@ -40,13 +40,13 @@
 
 - **[java]** 틱택톡 완성 예시 2
 
-  ![ttt3](ttt3.gif)
+  ![ttt3](https://user-images.githubusercontent.com/16812446/72773273-f0e46300-3c49-11ea-8d65-74a450bbcfc6.gif)
 
   - 틱택톡을 만들기 위해 사용된 주된 컴포넌트 : `paintComponent`
 
 - **[c++]** 틱택톡 완성 예시 3
 
-  ![ttt2](ttt2.gif)
+  ![ttt2](https://user-images.githubusercontent.com/16812446/72773264-e924be80-3c49-11ea-85cd-e79c0c191d43.gif)
 
   - 틱택톡을 만들기 위해 사용된 주된 컴포넌트 : `QToolButton`
 

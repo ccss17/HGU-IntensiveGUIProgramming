@@ -16,36 +16,35 @@
 
   - https://m.blog.naver.com/dd1587/221152592828
 
-
 ### **[필수]** **CLI** 로 채팅할 수 있는 할 수 있는 프로그램을 만드시오.
 
 - **[java]** `CLI` 채팅 프로그램 완성예시1
 
-  ![java-chat](java-chat.gif)
+  ![java-chat](https://user-images.githubusercontent.com/16812446/72773346-34d76800-3c4a-11ea-8456-7a88164267df.gif)
 
 - **[java]** `CLI` 채팅 프로그램 완성예시2
 
-  ![java-chat2](java-chat2.gif)
+  ![java-chat2](https://user-images.githubusercontent.com/16812446/72773362-3dc83980-3c4a-11ea-9ccc-6f1715c30332.gif)
 
 - **[C++]** `CLI` 채팅 프로그램 완성예시1
 
-  ![c++-chat](c++-chat.gif)
+  ![c++-chat](https://user-images.githubusercontent.com/16812446/72773373-4587de00-3c4a-11ea-8d96-656d34a991f7.gif)
 
 ### **[필수]** **GUI** 로 채팅할 수 있는 할 수 있는 프로그램을 만드시오.
 
 - **[java]** `GUI` 채팅 프로그램 완성예시
 
-  ![java-chat3](java-chat3.gif)
+  ![java-chat3](https://user-images.githubusercontent.com/16812446/72773395-5173a000-3c4a-11ea-94f4-7cff424a11e3.gif)
 
 - **[C++]** `GUI` 채팅 프로그램 완성예시
 
-  ![c++-chat2](c++-chat2.gif)
+  ![c++-chat2](https://user-images.githubusercontent.com/16812446/72773403-5afd0800-3c4a-11ea-8ec0-67c658753077.gif)
 
 - **[C++]** `GUI` 채팅 프로그램 완성예시2
 
-  ![c++-chat3](c++-chat3-win.gif)
+  ![c++-chat3-win](https://user-images.githubusercontent.com/16812446/72773413-62bcac80-3c4a-11ea-8b15-271136add351.gif)
 
-  ![c++-chat3](c++-chat3-linux.gif)
+  ![c++-chat3-linux](https://user-images.githubusercontent.com/16812446/72773425-6c461480-3c4a-11ea-8a0d-1c7e9b8a8ba8.gif)
 
 ### 힌트 
 
