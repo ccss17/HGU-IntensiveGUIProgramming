@@ -3,6 +3,7 @@
 
 #include <QPainter>
 #include <QDebug>
+#include <QGradient>
 
 #include <cmath>                    // used for rounding numbers
 

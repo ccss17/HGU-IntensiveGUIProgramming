@@ -69,6 +69,8 @@ private slots:
 
 //    void connected();
 
+    void on_pushButton_clicked();
+
 signals:
     void readReady();
 
